@@ -1,5 +1,5 @@
 # Image-Converter-GUI
-A normal, boring python program which can convert Image files like PNG, JPEG.
+A normal, boring python program which can convert Image files like PNG, JPEG, JFIF.
 
 # Requirements
 - Download the latest version of Python from Official site https://www.python.org/downloads/
