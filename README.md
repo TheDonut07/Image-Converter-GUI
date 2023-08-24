@@ -10,3 +10,6 @@ Go to CMD > type `pip install Pillow`
 Doube click **TD07ImageConverter.bat**, this batch script will run the python program using the pyhon interpreter you have downloaded which was mentioned in the Requirements.
 
 *Note: Make sure that Python is accessible in your system's PATH.*
+
+![TD07_preview](https://github.com/TheDonut07/Image-Converter-GUI/assets/103642750/56cc287f-62f8-4b29-8292-732293719cbd)
+
