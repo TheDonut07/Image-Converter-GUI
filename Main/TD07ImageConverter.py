@@ -28,6 +28,25 @@ def convert_jpg_to_png():
 
 
 
+def convert_jfif_to_png():
+    file_path = filedialog.askopenfilename(filetypes=[("JPEG files", "*.jfif")])
+
+    if file_path:
+        img = Image.open(file_path)
+        png_path = file_path.replace(".jfif", ".png")
+        img.save(png_path, "PNG")
+        
+        # Extracting file name and directory
+        selected_file_name = os.path.basename(file_path)
+        png_file_name = os.path.basename(png_path)
+        file_directory = os.path.dirname(file_path)
+
+        # Pop-up Message
+        status_message = f"Saved Image Details\n\n- JPG File:  {selected_file_name}\n- Converted File:  {png_file_name}\n- Saved File Directory: \n{file_directory}"
+        messagebox.showinfo("Successfully Saved", status_message)
+
+
+
 def convert_png_to_jpg():
     file_path = filedialog.askopenfilename(filetypes=[("PNG files", "*.png")])
 
@@ -70,15 +89,29 @@ mainApp.geometry("800x600")
 mainApp.configure(bg="#5271FF")
 
 # Buttons
-# Convert to PNG
 buttonFont = ("Lato", 12, "bold")
-convert_to_PNGbutton = tk.Button(mainApp, text="Convert JPG to PNG", font=buttonFont, command=convert_jpg_to_png, bg="#F0DBC1")
+
+# First line of buttons
+first_line_frame = tk.Frame(mainApp, bg="#5271FF")
+first_line_frame.pack(side=tk.TOP, pady=(250, 0),  padx=(200, 0))
+
+# Second line of buttons
+second_line_frame = tk.Frame(mainApp, bg="#5271FF")
+second_line_frame.pack()
+
+
+# Convert JPG-2-PNG
+convert_to_PNGbutton = tk.Button(first_line_frame, text="Convert JPG to PNG", font=buttonFont, command=convert_jpg_to_png, bg="#F0DBC1")
 convert_to_PNGbutton.pack(pady=5, padx=(8, 30), side=tk.RIGHT)
 
-
-# Convert to JPG
-convert_to_JPGbutton = tk.Button(mainApp, text="Convert PNG to JPG", font=buttonFont, command=convert_png_to_jpg, bg="#F0DBC1")
+# Convert PNG-2-JPG
+convert_to_JPGbutton = tk.Button(first_line_frame, text="Convert PNG to JPG", font=buttonFont, command=convert_png_to_jpg, bg="#F0DBC1")
 convert_to_JPGbutton.pack(pady=5, padx=0, side=tk.RIGHT)
+
+# Convert JFIF-2-PNG
+convert_to_JFIF2PNGbutton = tk.Button(second_line_frame, text="Convert JFIF to PNG", font=buttonFont, command=convert_jfif_to_png, bg="#F0DBC1")
+convert_to_JFIF2PNGbutton.pack(pady=5, padx=(8, 15), side=tk.RIGHT)
+
 
 
 
